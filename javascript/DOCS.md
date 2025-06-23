@@ -62,17 +62,17 @@ JavaScript（以下 JS ）とは一般に Web 開発やシステム開発に用�
 
 Chrome ではウィンドウ右上のケバブボタンから開いたメニューの「その他のツール」から「デベロッパーツール」を開けます。
 
-![開発者ツールをひらく](imgs/open-devtool-from-kebab.png)
+<img src="imgs/open-devtool-from-kebab.webp" width="50%" alt="開発者ツールをひらく">
 
 ショートカットキーが設定されているため、Windows や ChromeOS では `Ctrl`+`Shift`+`I` で、macOS では `Cmd`+`Option`+`I` でも開くことができます。また、ページの適当な部分で右クリックして「検証」を押すことでも開発者ツールが開けます。  
 無事にツールが開けていれば以下のような表示になるはずです。
 
-![開発者ツール開いた見た目](imgs/devtool-opened-element.png)
+<img src="imgs/devtool-opened-element.webp" width="50%" alt="開発者ツールを開いた見た目">
 
 開いているタブが要素タブ（ Element タブ）ではなかったり、日本語化の案内が出るかもしれませんが、ひとまずコンソールタブ（ Console タブ）を開いてください。  
 これで準備完了です。
 
-![コンソールタブ](imgs/devtool-opened-console.png)
+<img src="imgs/devtool-opened-console.webp" width="50%" alt="コンソールタブ">
 
 ### 1-2. Hello, World! しよう
 
@@ -86,7 +86,7 @@ console.log('Hello, World!');
 入力したら Enter キーで実行してみましょう。
 実行すると以下の画像のように表示されるはずです。
 
-![Hello, World!](imgs/hello-world.png)
+<img src="imgs/hello-world.webp" width="50%" alt="Hello, World!">
 
 このように、JS では `console.log(<任意の文字列>);` とすることでコンソールタブに出力することができます。
 
