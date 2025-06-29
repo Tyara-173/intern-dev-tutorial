@@ -106,7 +106,7 @@ console.log('Hello, World!');
 a = 1;
 ```
 
-![未宣言の変数に値を代入しようとしたエラー](imgs/strict-error-undefined-variable.png)
+<img src="imgs/strict-error-undefined-variable.webp" width="50%" alt="未宣言の変数に値を代入しようとしたエラー">
 
 上の画像のようにエラーが出れば問題なく厳格モードが有効になっています。  
 この場合は宣言していない変数を操作しようとしたことでエラーが発生しています。これは意図せずグローバル変数を宣言してしまうのを防いでくれます。  
