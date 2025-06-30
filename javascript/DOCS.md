@@ -238,14 +238,14 @@ value += 2; // value = value + 2; と同じ
 | ---- | ---- | ---- | ---- |
 | インクリメント | 後置インクリメント `x++`<br>前置インクリメント `++x` | ![後置インクリメント処理](imgs/calc-after-increment.png)<br>![前置インクリメント処理](imgs/calc-before-increment.png) | 後置：先に評価結果を返して加算を行う<br>前置：先に加算を行って評価結果を返す |
 | デクリメント | 後置デクリメント `x--`<br>前置デクリメント `--x` | ![後置デクリメント処理](imgs/calc-after-decrement.png)<br>![前置デクリメント処理](imgs/calc-before-decrement.png) | 後置：先に評価結果を返して減算を行う<br>前置：先に減算を行って評価結果を返す |
-| 絶対値 | `Math.abs(1)`<br>`Math.abs(-1)` |  |  |
-| 最小値 | `Math.min(1, 2)` |  |  |
-| 最大値 | `Math.max(1, 2)` |  |  |
+| 絶対値 | `Math.abs(1)`<br>`Math.abs(-1)` | ![正の値の絶対値](imgs/math-abs-plus.jpeg)<br>![負の値の絶対値](imgs/math-abs-minus.jpeg) |  |
+| 最小値 | `Math.min(1, 2)` | ![最小値](imgs/math-min.jpeg) |  |
+| 最大値 | `Math.max(1, 2)` | ![最大値](imgs/math-max.jpeg) |  |
 | べき乗 | `2 ** 2`<br>`Math.pow(2, 2)` | ![べき乗演算子](imgs/calc-power-operator.png)<br>![Mathオブジェクトを利用](imgs/calc-power-mathobj.png) | べき乗演算子`**`が後に実装された |
 | 円周率 | `Math.PI` | ![円周率](imgs/math-pi.png) |  |
 | 正弦 | `Math.sin(θ)` | ![正弦](imgs/math-sin.png) |  |
 | 余弦 | `Math.cos(θ)` | ![余弦](imgs/math-cos.png) |  |
-| 正接 | `Math.tan(θ)` |  |  |
+| 正接 | `Math.tan(θ)` | ![正接](imgs/math-tan.jpeg) |  |
 
 その他の Math オブジェクトのプロパティやメソッドは[こちら](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Math)から確認できます。
 
@@ -259,7 +259,7 @@ value += 2; // value = value + 2; と同じ
 | 結合 | `'jig' + '.' + 'jp'` | ![結合](imgs/str-binding.png) |
 |  | `str += otherStr` | ![結合](imgs/str-bind-assign.png) |
 | 長さ | `'jig.jp'.length` | ![文字列の長さ](imgs/str-length.png) |
-| 文字列の取り出し | `'jig.jp'.subString(0, 3)` |  |
+| 文字列の取り出し | `'jig.jp'.subString(0, 3)` | ![文字列の取り出し](imgs/str-substring.jpeg) |
 | 文字の取り出し | `'jig.jp'.charAt(1)` | ![文字取り出し](imgs/str-charat.png) |
 | 分割 | `'jig.jp'.split(.)` | ![分割](imgs/str-split.png) |
 | 切り出し | `'jig.jp'.slice(1, 4)` | ![文字列の切り出し](imgs/str-slice.png) |
