@@ -259,9 +259,9 @@ value += 2; // value = value + 2; と同じ
 | 結合 | `'jig' + '.' + 'jp'` | ![結合](imgs/str-binding.webp) |
 |  | `str += otherStr` | ![結合](imgs/str-bind-assign.webp) |
 | 長さ | `'jig.jp'.length` | ![文字列の長さ](imgs/str-length.webp) |
-| 文字列の取り出し | `'jig.jp'.subString(0, 3)` | ![文字列の取り出し](imgs/str-substring.webp) |
+| 文字列の取り出し | `'jig.jp'.substring(0, 3)` | ![文字列の取り出し](imgs/str-substring.webp) |
 | 文字の取り出し | `'jig.jp'.charAt(1)` | ![文字取り出し](imgs/str-charat.webp) |
-| 分割 | `'jig.jp'.split(.)` | ![分割](imgs/str-split.webp) |
+| 分割 | `'jig.jp'.split('.')` | ![分割](imgs/str-split.webp) |
 | 切り出し | `'jig.jp'.slice(1, 4)` | ![文字列の切り出し](imgs/str-slice.webp) |
 | 置き換え | `'jig.jp'.replace('ji', 'じぇいあい')` | ![文字列の置き換え](imgs/str-replace.webp) |
 | 位置 | `'jig.jp'.indexOf('jp')` | ![文字列の位置](imgs/str-indexof.webp) |
