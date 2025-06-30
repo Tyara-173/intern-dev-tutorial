@@ -176,18 +176,18 @@ function myFunc () {
 
 ## 3. JavaScript で処理させよう
 
-ここでは様々な計算や処理をJSにやってもらう方法を説明します。
+ここでは様々な計算や処理を JS にやってもらう方法を説明します。
 
 ### 3-1. 変数
 
-変数は値を格納する入れ物です。例えるならラベルが付いた箱のようなものです。
-変数を宣言するには`let`の後に変数の名前を記述します。
+変数は値を格納する入れ物です。例えるならラベルが付いた箱のようなものです。  
+変数を宣言するには `let` の後に変数の名前を記述します。
 
 ```javascript
 let myVariable;
 ```
 
-変数のあとに`=`と値を順番に記述すると、その値を変数に割り当てることができます。
+変数のあとに `=` と値を順番に記述すると、その値を変数に割り当てることができます。  
 値の割り当てと変数の宣言をまとめて、一行で記述することもできます。
 
 ```javascript
@@ -199,8 +199,8 @@ let nextVariable = 100;
 
 ### 3-2. 定数
 
-定数は変数とは違い、一度割り当てると後から変更することはできません。
-定数を宣言するには`let`のかわりに`const`を使います。
+定数は変数とは違い、一度割り当てると後から変更することはできません。  
+定数を宣言するには `let` のかわりに `const` を使います。
 
 ```javascript
 const myConstantValue = 10;
@@ -222,7 +222,7 @@ const myConstantValue = 10;
 | 除法 | `2 / 2` | ![除法演算](imgs/calc-divide.png) |
 | 剰余 | `3 % 2` | ![剰余演算](imgs/calc-remainder.png) |
 
-この他に`+=`、`-=`のような二項演算子の後ろに`=`をつける、加算代入演算子や減算代入演算子などもあります。
+この他に `+=`、`-=` のような二項演算子の後ろに `=` をつける、加算代入演算子や減算代入演算子などもあります。  
 この演算子は計算と変数への値の割り当てを一行で記述できます。
 
 ```javascript
@@ -241,7 +241,7 @@ value += 2; // value = value + 2; と同じ
 | 絶対値 | `Math.abs(1)`<br>`Math.abs(-1)` | ![正の値の絶対値](imgs/math-abs-plus.jpeg)<br>![負の値の絶対値](imgs/math-abs-minus.jpeg) |  |
 | 最小値 | `Math.min(1, 2)` | ![最小値](imgs/math-min.jpeg) |  |
 | 最大値 | `Math.max(1, 2)` | ![最大値](imgs/math-max.jpeg) |  |
-| べき乗 | `2 ** 2`<br>`Math.pow(2, 2)` | ![べき乗演算子](imgs/calc-power-operator.png)<br>![Mathオブジェクトを利用](imgs/calc-power-mathobj.png) | べき乗演算子`**`が後に実装された |
+| べき乗 | `2 ** 2`<br>`Math.pow(2, 2)` | ![べき乗演算子](imgs/calc-power-operator.png)<br>![Mathオブジェクトを利用](imgs/calc-power-mathobj.png) | べき乗演算子 `**` が後に実装された |
 | 円周率 | `Math.PI` | ![円周率](imgs/math-pi.png) |  |
 | 正弦 | `Math.sin(θ)` | ![正弦](imgs/math-sin.png) |  |
 | 余弦 | `Math.cos(θ)` | ![余弦](imgs/math-cos.png) |  |
@@ -251,7 +251,7 @@ value += 2; // value = value + 2; と同じ
 
 ### 3-4. 文字列
 
-文字列はJSではStringオブジェクトとして扱われ、様々な操作を行うことができます。  
+文字列は JS では String オブジェクトとして扱われ、様々な操作を行うことができます。  
 一部の操作方法を以下に示します。
 
 | 操作 | 記述 | 実行結果 |
@@ -266,7 +266,7 @@ value += 2; // value = value + 2; と同じ
 | 置き換え | `'jig.jp'.replace('ji', 'じぇいあい')` | ![文字列の置き換え](imgs/str-replace.png) |
 | 位置 | `'jig.jp'.indexOf('jp')` | ![文字列の位置](imgs/str-indexof.png) |
 
-その他のStringオブジェクトのプロパティやメソッドは[こちら](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String)から確認できます。
+その他の String オブジェクトのプロパティやメソッドは[こちら](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String)から確認できます。
 
 ### 3-5. 論理演算
 
