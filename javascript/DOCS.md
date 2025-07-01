@@ -18,9 +18,9 @@
     - [2-4. インデント](#2-4-インデント)
   - [3. JavaScript で処理させよう](#3-javascript-で処理させよう)
     - [3-1. 変数](#3-1-変数)
-    - [3-2. 四則演算](#3-2-四則演算)
-    - [3-3. その他の算術演算](#3-3-その他の算術演算)
-    - [3-4. 文字列の処理](#3-4-文字列の処理)
+    - [3-2. 定数](#3-2-定数)
+    - [3-3. 算術演算](#3-3-算術演算)
+    - [3-4. 文字列](#3-4-文字列)
     - [3-5. 論理演算](#3-5-論理演算)
   - [4. 条件によって処理を変えよう](#4-条件によって処理を変えよう)
     - [4-1. 比較演算子](#4-1-比較演算子)
@@ -184,19 +184,18 @@ function myFunc () {
 
 ## 3. JavaScript で処理させよう
 
-ここでは様々な計算や処理をJSにやってもらう方法を説明します。
+ここでは様々な計算や処理を JS にやってもらう方法を説明します。
 
 ### 3-1. 変数
 
-はじめに、プログラムを書くにあたって重要な変数から説明します。
-変数は値を格納する入れ物です。例えるとラベルの付いた箱のようなものです。
-`let`と記述した後に変数の名前を記述することで変数を宣言できます。
+変数は値を格納する入れ物です。例えるならラベルが付いた箱のようなものです。  
+変数を宣言するには `let` の後に変数の名前を記述します。
 
 ```javascript
 let myVariable;
 ```
 
-変数のあとに`=`と値を順番に記述すると、その値を変数に割り当てることができます。
+変数のあとに `=` と値を順番に記述すると、その値を変数に割り当てることができます。  
 値の割り当てと変数の宣言をまとめて、一行で記述することもできます。
 
 ```javascript
@@ -206,80 +205,76 @@ myVariable = 1;
 let nextVariable = 100;
 ```
 
-`let`を使って宣言すると、後から変数に割り当てた値を変更できます。
-`let`のかわりに`const`を使って宣言すると、後から変更できない定数として宣言できます。
+### 3-2. 定数
+
+定数は変数とは違い、一度割り当てると後から変更することはできません。  
+定数を宣言するには `let` のかわりに `const` を使います。
 
 ```javascript
-let myVariable = 1;
-myVariable = 23;
+const myConstantValue = 10;
 
-const constantValue = 10;
+// 一度割り当てると、後から変更することはできない
+// そのため以下のコードを実行するとエラーになる
+// myConstantValue = 100;
 ```
 
-### 3-2. 四則演算
+### 3-3. 算術演算
 
-次に計算といえばな四則演算について説明します。それぞれ以下のようにして記述することができます。
+まず計算といえばな四則演算について説明します。それぞれ以下のようにして記述することができます。
 
 | 演算 | 記述 | 実行結果 |
 | ---- | ---- | ---- |
-| 加法 | `1 + 1` | ![加法演算](imgs/calc-plus.png) |
-| 減法 | `1 - 1` | ![減法演算](imgs/calc-minus.png) |
-| 乗法 | `2 * 2` | ![乗法演算](imgs/calc-multi.png) |
-| 除法 | `2 / 2` | ![除法演算](imgs/calc-divide.png) |
-| 剰余 | `3 % 2` | ![剰余演算](imgs/calc-remainder.png) |
+| 加法 | `1 + 1` | ![加法演算](imgs/calc-plus.webp) |
+| 減法 | `1 - 1` | ![減法演算](imgs/calc-minus.webp) |
+| 乗法 | `2 * 2` | ![乗法演算](imgs/calc-multi.webp) |
+| 除法 | `2 / 2` | ![除法演算](imgs/calc-divide.webp) |
+| 剰余 | `3 % 2` | ![剰余演算](imgs/calc-remainder.webp) |
 
-この他に`+=`、`-=`のような二項演算子の後ろに`=`をつける、加算代入演算子や減算代入演算子などもあります。
-この演算子は計算と変数への値の割り当てと一行で記述できます。
-
-```javascript
-let value = 1;
-value += 2;
-```
-
-この加算代入演算子を使った処理は、以下のコードと同じ処理になります。
+この他に `+=`、`-=` のような二項演算子の後ろに `=` をつける、加算代入演算子や減算代入演算子などもあります。  
+この演算子は計算と変数への値の割り当てを一行で記述できます。
 
 ```javascript
 let value = 1;
-value = value + 2;
+value += 2; // value = value + 2; と同じ
 ```
 
-### 3-3. その他の算術演算
-
-プログラムでは四則演算以外でも頻繁につかう演算があります。
-変数の値を一つ増やすインクリメントや、一つ減らすデクリメントがその例です。
-インクリメントのようなプログラム中で特に利用する演算は、演算子として用意されています。
-
-また、三角関数のような高度な演算はJSでは `Math` という名前の組み込みオブジェクトから呼び出せます。
-
+他にも変数の値を一つ増やすインクリメントや、逆に減らすデクリメントもあります。  
+また、三角関数のような高度な演算は `Math` という組み込みオブジェクトから呼び出すことができます。  
 以下にいくつか例を示します。
 
 | 演算 | 記述 | 実行結果 | 補足 |
 | ---- | ---- | ---- | ---- |
-| インクリメント | 後置インクリメント:`x++`<br>前置インクリメント:`++x` | ![後置インクリメント処理](imgs/calc-after-increment.png)<br>![前置インクリメント処理](imgs/calc-before-increment.png) | 後置:先に評価結果を返して加算を行う<br>前置:先に加算を行って評価結果を返す |
-| デクリメント | 後置デクリメント:`x--`<br>前置デクリメント:`--x` | ![後置デクリメント処理](imgs/calc-after-decrement.png)<br>![前置デクリメント処理](imgs/calc-before-decrement.png) | 後置:先に評価結果を返して減算を行う<br>前置:先に減算を行って評価結果を返す |
-| べき乗 | `2 ** 2`<br>`Math.pow(2,2)` | ![べき乗演算子](imgs/calc-power-operator.png)<br>![Mathオブジェクトを利用](imgs/calc-power-mathobj.png) | べき乗演算子`**`が後に実装された |
-| 円周率 | `Math.PI` | ![円周率](imgs/math-pi.png) |  |
-| 正弦 | `Math.sin(θ)` | ![正弦](imgs/math-sin.png) |  |
-| 余弦 | `Math.cos(θ)` | ![余弦](imgs/math-cos.png) |  |
+| インクリメント | 後置インクリメント `x++`<br>前置インクリメント `++x` | ![後置インクリメント処理](imgs/calc-after-increment.webp)<br>![前置インクリメント処理](imgs/calc-before-increment.webp) | 後置：先に評価結果を返して加算を行う<br>前置：先に加算を行って評価結果を返す |
+| デクリメント | 後置デクリメント `x--`<br>前置デクリメント `--x` | ![後置デクリメント処理](imgs/calc-after-decrement.webp)<br>![前置デクリメント処理](imgs/calc-before-decrement.webp) | 後置：先に評価結果を返して減算を行う<br>前置：先に減算を行って評価結果を返す |
+| 絶対値 | `Math.abs(1)`<br>`Math.abs(-1)` | ![正の値の絶対値](imgs/math-abs-plus.webp)<br>![負の値の絶対値](imgs/math-abs-minus.webp) |  |
+| 最小値 | `Math.min(1, 2)` | ![最小値](imgs/math-min.webp) |  |
+| 最大値 | `Math.max(1, 2)` | ![最大値](imgs/math-max.webp) |  |
+| べき乗 | `2 ** 2`<br>`Math.pow(2, 2)` | ![べき乗演算子](imgs/calc-power-operator.webp)<br>![Mathオブジェクトを利用](imgs/calc-power-mathobj.webp) | べき乗演算子 `**` が後に実装された |
+| 円周率 | `Math.PI` | ![円周率](imgs/math-pi.webp) |  |
+| 正弦 | `Math.sin(θ)` | ![正弦](imgs/math-sin.webp) |  |
+| 余弦 | `Math.cos(θ)` | ![余弦](imgs/math-cos.webp) |  |
+| 正接 | `Math.tan(θ)` | ![正接](imgs/math-tan.webp) |  |
 
-その他のMathオブジェクトのプロパティやメソッドは[こちら](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Math)から確認できます。
+その他の Math オブジェクトのプロパティやメソッドは[こちら](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Math)から確認できます。
 
-### 3-4. 文字列の処理
+### 3-4. 文字列
 
-文字列はJSではStringオブジェクトとして扱われ、様々な操作を行うことができます。連結、分割、置き換えなどの一部操作の方法を以下に示します。
+文字列は JS では String オブジェクトとして扱われ、様々な操作を行うことができます。  
+一部の操作方法を以下に示します。
 
 | 操作 | 記述 | 実行結果 |
-| ---- | ---- | ---- |
-| 結合 | `'jig' + '.' + 'jp'` | ![結合](imgs/str-binding.png) |
-| 結合 | `str += otherStr` | ![結合](imgs/str-bind-assign.png)
-| 文字の取り出し | `'jig.jp'.charAt(1)` | ![文字取り出し](imgs/str-charat.png) |
-| 分割 | `'jig.jp'.split('.')` | ![分割](imgs/str-split.png) |
-| 文字列の切り出し | `'jig.jp'.slice(1, 4)` | ![文字列の切り出し](imgs/str-slice.png) |
-| 文字列の置き換え | `'jig.jp'.replace('ji', 'じぇいあい')` | ![文字列の置き換え](imgs/str-replace.png) |
-| 文字列の長さ | `'jig.jp'.length` | ![文字列の長さ](imgs/str-length.png) |
-| 文字列の位置 | `'jig.jp'.indexOf('jp')` | ![文字列の位置](imgs/str-indexof.png) |
+| - | - | - |
+| 結合 | `'jig' + '.' + 'jp'` | ![結合](imgs/str-binding.webp) |
+|  | `str += otherStr` | ![結合](imgs/str-bind-assign.webp) |
+| 長さ | `'jig.jp'.length` | ![文字列の長さ](imgs/str-length.webp) |
+| 文字列の取り出し | `'jig.jp'.substring(0, 3)` | ![文字列の取り出し](imgs/str-substring.webp) |
+| 文字の取り出し | `'jig.jp'.charAt(1)` | ![文字取り出し](imgs/str-charat.webp) |
+| 分割 | `'jig.jp'.split('.')` | ![分割](imgs/str-split.webp) |
+| 切り出し | `'jig.jp'.slice(1, 4)` | ![文字列の切り出し](imgs/str-slice.webp) |
+| 置き換え | `'jig.jp'.replace('ji', 'じぇいあい')` | ![文字列の置き換え](imgs/str-replace.webp) |
+| 位置 | `'jig.jp'.indexOf('jp')` | ![文字列の位置](imgs/str-indexof.webp) |
 
-その他のStringオブジェクトのプロパティやメソッドは[こちら](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String)から確認できます。
+その他の String オブジェクトのプロパティやメソッドは[こちら](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String)から確認できます。
 
 ### 3-5. 論理演算
 
@@ -287,9 +282,9 @@ value = value + 2;
 
 | 演算 | 記述 | 実行結果 |
 | ---- | ---- | ---- |
-| AND | `a && b` | ![and](imgs/calc-and.png) |
-| OR | `a \|\| b` | ![or](imgs/calc-or.png) |
-| NOT | `!a` | ![not](imgs/calc-not.png) |
+| AND | `a && b` | ![and](imgs/calc-and.webp) |
+| OR | `a \|\| b` | ![or](imgs/calc-or.webp) |
+| NOT | `!a` | ![not](imgs/calc-not.webp) |
 
 ## 4. 条件によって処理を変えよう
 
