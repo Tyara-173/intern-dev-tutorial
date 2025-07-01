@@ -374,7 +374,7 @@ if (d === 0) {
 
 実行結果は以下のようになります。
 
-![重解](imgs/if-discriminant-1.png)![実数解](imgs/if-discriminant-2.png)
+![重解](imgs/if-discriminant-1.webp)![実数解](imgs/if-discriminant-2.webp)
 
 ### 4-3. 三項演算子
 
@@ -407,7 +407,7 @@ console.log(res);
 このように三項演算子の下に、新たに三項演算子を書くことができます。
 しかし階層が深くなると複雑になり、読みづらくなるので注意が必要です。
 
-![三項演算子](imgs/conditional-operator-1.png)![三項演算子](imgs/consitional-operator-2.png)
+![三項演算子](imgs/conditional-operator-1.webp)![三項演算子](imgs/consitional-operator-2.webp)
 
 ## 5. 繰り返し処理をさせよう
 
