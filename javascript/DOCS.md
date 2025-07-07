@@ -407,7 +407,7 @@ console.log(res);
 このように三項演算子の下に、新たに三項演算子を書くことができます。
 しかし階層が深くなると複雑になり、読みづらくなるので注意が必要です。
 
-![三項演算子](imgs/conditional-operator-1.webp)![三項演算子](imgs/consitional-operator-2.webp)
+![三項演算子](imgs/conditional-operator-1.webp)![三項演算子](imgs/conditional-operator-2.webp)
 
 ## 5. 繰り返し処理をさせよう
 
