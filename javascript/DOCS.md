@@ -432,7 +432,7 @@ console.log(array[3]); // 4
 console.log(array[5]); // undefined
 ```
 
-![配列のサンプル](imgs/array-sample.png)
+![配列のサンプル](imgs/array-sample.webp)
 
 配列は `[]` で囲まれ `,` で区切られた一連の値で表現されます。  
 個々の値にアクセスするには配列名の後ろに `[index]` と書きます。この `index` とは配列の中の順番のことで、0番から順に番号が振られます。  
@@ -476,7 +476,7 @@ for (let i = 1; i <= 10; i++) {
 console.log(fibonacciSeries); // [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 ```
 
-![実行結果](imgs/for-calc-fibonacci.png)
+![実行結果](imgs/for-calc-fibonacci.webp)
 
 このように面倒な手順を `for` 文を使うことでで簡単に記述できました。
 
@@ -544,7 +544,7 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-![foreach](imgs/calc-evenodd-foreach.png) ![index](imgs/calc-evenodd-index.png)
+![foreach](imgs/calc-evenodd-foreach.webp) ![index](imgs/calc-evenodd-index.webp)
 
 for 文中の処理の最初で `array[i]` を別の変数(例えば `value` )に代入しても良いですが、同様のことが `forEach()` では `(value) => {...}` とするだけで書くことができます。また for 文での処理と違い配列の長さを気にせず処理を行えるのも便利な特徴です。適宜使い分けると良いでしょう。
 
