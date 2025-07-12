@@ -667,7 +667,7 @@ let obj = {
 console.log(obj.key1, obj['key2']);
 ```
 
-![オブジェクトのサンプル実行結果](imgs/object-sample.png)
+![オブジェクトのサンプル実行結果](imgs/object-sample.webp)
 
 このとき、`[]`（ブラケット記法）を利用したアクセスでは `obj['key2']` のように、プロパティ名を文字列として記述するほうが望ましいです。  
 仮に `obj[key2]` と記述してアクセスしようとしたとき、`key2` が変数として解釈されて未定義のためエラーが発生します。  
@@ -688,7 +688,7 @@ obj['key2'] = 'value2';
 console.log(obj.key1, obj['key2']);
 ```
 
-![オブジェクトにプロパティを追加](imgs/objectr-add-property.png)
+![オブジェクトにプロパティを追加](imgs/objectr-add-property.webp)
 
 またこの特性から、オブジェクトにないプロパティも参照できてしまいます（参照すると `undefined` が返ります）。  
 この挙動によるバグを回避するために、いくつかの方法でオブジェクトに目的のプロパティが存在するかを確認することができます。  
@@ -744,7 +744,7 @@ console.log(obj?.prop2?.key1); // X  undefined ( obj?.prop2 が undefined にな
   console.log(basicArithmeticOperations.div(2, 2));
   ```
 
-  ![関数をプロパティに](imgs/object-function.png)
+  ![関数をプロパティに](imgs/object-function.webp)
 </details>
 
 ### 6-3. クラス
@@ -807,7 +807,7 @@ const myClass = new MyClass('my text');
 myClass.printText();
 ```
 
-![クラスのサンプルコード実行結果](imgs/class-sample.png)
+![クラスのサンプルコード実行結果](imgs/class-sample.webp)
 
 ## 7. 非同期処理を使おう
 
