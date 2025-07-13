@@ -42,9 +42,9 @@
   - [7. 非同期処理を使おう](#7-非同期処理を使おう)
     - [7-1. `Promise`/`then()`/`catch()`](#7-1-promisethencatch)
     - [7-2. `async`/`await`](#7-2-asyncawait)
-  - [8. ブラウザの標準APIを使ってみよう](#8-ブラウザの標準apiを使ってみよう)
+  - [8. ブラウザの標準 API を使ってみよう](#8-ブラウザの標準-api-を使ってみよう)
     - [8-1. Web Storage API](#8-1-web-storage-api)
-    - [8-2. 位置情報API](#8-2-位置情報api)
+    - [8-2. 位置情報 API](#8-2-位置情報-api)
   - [9. 終わりに](#9-終わりに)
   - [10. 参考文献](#10-参考文献)
 
@@ -907,50 +907,50 @@ try {
 
 処理によって`Promise`~`then`を利用するか`async`/`await`を利用するか、どちらが読みやすいかを考えながら使い分けられると良いですね。
 
-## 8. ブラウザの標準APIを使ってみよう
+## 8. ブラウザの標準 API を使ってみよう
 
-さて、最後にweb開発を助けてくれるブラウザの機能について説明します。
-我々が普段使うブラウザには様々なAPIが用意されています。特に有用な2つを使ってみましょう。
+さて、最後に web 開発を助けてくれるブラウザの機能について説明します。  
+我々が普段使うブラウザには様々な API が用意されています。特に有用な2つを使ってみましょう。
 
 ### 8-1. Web Storage API
 
-Web Storage API はブラウザにキーと値の対を保存できるAPIです。
+Web Storage API はブラウザにキーと値の対を保存できる API です。
 その中でも特に `localStorage` について説明します。
 
-`localstorage`は以下のようにして利用できます。
+`localstorage` は以下のようにして利用できます。
 
 ```javascript
 // 値のセット
 localStorage.setItem('name', 'jig太郎');
+
 // 値の取り出し
 console.log(localStorage.getItem('name')); // jig太郎
+
 // ローカルストレージに保存されている値の数を取得
 console.log(localStorage.length); // 1
+
 // 値の削除
 localStorage.removeItem('name');
-
 console.log(localStorage.getItem('name')); // null
 
 localStorage.setItem('name', 'jig太郎');
 localStorage.setItem('age', '20');
 // ローカルストレージを空にする
 localStorage.clear();
-
 console.log(localStorage.length); // 0
 ```
 
 ![localStorageサンプル](imgs/localstorage.png)
 
-注意点として、`localStorage`に保存する値はすべて文字列になることが挙げられます。
-例えば、`localStorage.setItem('age', 20);`としてnumber型で保存できたと思っても、`getItem`で取り出したときには`'20'`として文字列で返ってきます。このあと数値として扱いたい場合には`Number(<文字列>)`としてnumber型に変換する必要があります。
+注意点として、`localStorage` に保存する値はすべて文字列になることが挙げられます。  
+例えば、`localStorage.setItem('age', 20);` として number 型で保存できたと思っても、`getItem` で取り出したときには `'20'` として文字列で返ってきます。このあと数値として扱いたい場合には `Number(<文字列>)` として number 型に変換する必要があります。  
+また、`localStorage` への操作はパフォーマンスが悪いという問題もあります。多用するのは問題ですが、扱いやすさ故に許容されがちです。気をつけて利用するようにしましょう。
 
-また、`localStorage`への操作はパフォーマンスが悪いという問題もあります。多用するのは問題ですが、扱いやすさ故に許容されがちです。気をつけて利用するようにしましょう。
-
-### 8-2. 位置情報API
+### 8-2. 位置情報 API
 
 インターネットにアクセスできる環境下で便利なものの一つが位置情報でしょう。手元の小さな端末が自分の位置を正確に取得してくれるおかげで我々は迷子になることが減りました。
 
-そんな位置情報を取得するためのAPIがブラウザにも実装されています。以下のようにして自分の緯度経度を取得することができます。
+そんな位置情報を取得するための API がブラウザにも実装されています。以下のようにして自分の緯度経度を取得することができます。
 
 ```javascript
 // 位置情報が利用可能か確認する
