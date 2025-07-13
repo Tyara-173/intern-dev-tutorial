@@ -980,12 +980,12 @@ if ('geolocation' in navigator) {
 
 ## 9. 終わりに
 
-ここまででこの記事ではJSの初歩〜ブラウザのAPIを利用するまでを駆け足で説明してきました。
-が、簡単のために省略した部分や実際の内容とは異なる解説をしている部分もあるため、理解しきれてない部分もあるかもしれません。
-わからないところ、詳しく知りたいところは筆者やメンターに聞いたり、参考文献から調べたりしてみてください。
+ここまででJSの初歩〜ブラウザの標準APIを利用するまでを駆け足で説明してきました。
+省略した部分や実際の内容とは異なる解説をしている部分もあるため、理解しきれてない部分もあるかもしれません。
+わからないところや詳しく知りたいところは筆者やメンターに聞いたり、参考文献から調べたりしてみてください。
 
 ## 10. 参考文献
 
 - mdn web docs: <https://developer.mozilla.org/ja/docs/Web/JavaScript>
 - JSPrimer: <https://jsprimer.net/>
-- ECMAScript2020言語仕様　私的日本語訳: <https://xn--ecmascript2020-tt9vf572amitfjlc.com/>
+- ECMAScript2020言語仕様　私的日本語訳: <https://xn--ecmascript2020-tt9vf572amitfjlc.com/>（2025年7月現在 アクセス不可）
