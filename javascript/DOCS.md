@@ -797,8 +797,29 @@ myClass.printText();
 ここまで紹介してきたコードはすべて同期処理で、非同期処理とは対称的に書いてあるコードが上から順に処理されていきます。しかし、同期処理ではサーバーへのリクエストを送ったあとレスポンスが返ってくるまで何もすることができず（正確には「レスポンスを待つ」ことが処理になっているため次の処理に移れず）、処理にかかる時間が大幅に伸びてしまったりします。  
 この待ち時間を解消するための仕組みが非同期処理です。  
 
-[![同期処理のイメージ](https://mermaid.ink/img/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG4gIHBhcnRpY2lwYW50IEMgYXMg44Kv44Op44Kk44Ki44Oz44OIXG4gIHBhcnRpY2lwYW50IEggYXMg44Ob44K544OIXG5cbiAgQyAtPj4rIEg6IOODquOCr-OCqOOCueODiFxuICBOb3RlIHJpZ2h0IG9mIEM6IOW-heOBoeaZgumWk1xuICBIIC0tPj4tIEM6IOODrOOCueODneODs-OCuVxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/docs/mermaid-live-editor-beta/#/edit/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG4gIHBhcnRpY2lwYW50IEMgYXMg44Kv44Op44Kk44Ki44Oz44OIXG4gIHBhcnRpY2lwYW50IEggYXMg44Ob44K544OIXG5cbiAgQyAtPj4rIEg6IOODquOCr-OCqOOCueODiFxuICBOb3RlIHJpZ2h0IG9mIEM6IOW-heOBoeaZgumWk1xuICBIIC0tPj4tIEM6IOODrOOCueODneODs-OCuVxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)[![非同期処理のイメージ](https://mermaid.ink/img/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG4gIHBhcnRpY2lwYW50IEMgYXMg44Kv44Op44Kk44Ki44Oz44OIXG4gIHBhcnRpY2lwYW50IFAgYXMg6Z2e5ZCM5pyf5Yem55CGXG4gIHBhcnRpY2lwYW50IEggYXMg44Ob44K544OIXG5cbiAgQyAtPj4rIFA6IOWHpueQhueZu-mMslxuICBQIC0-PisgSDog44Oq44Kv44Ko44K544OIXG4gIE5vdGUgcmlnaHQgb2YgQzog5LuW44Gu5Yem55CGXG4gIEggLS0-Pi0gUDog44Os44K544Od44Oz44K5XG4gIFAgLS0-Pi0gQzog44Kz44O844Or44OQ44OD44Kv5ZG844Gz5Ye644GXIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/docs/mermaid-live-editor-beta/#/edit/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG4gIHBhcnRpY2lwYW50IEMgYXMg44Kv44Op44Kk44Ki44Oz44OIXG4gIHBhcnRpY2lwYW50IFAgYXMg6Z2e5ZCM5pyf5Yem55CGXG4gIHBhcnRpY2lwYW50IEggYXMg44Ob44K544OIXG5cbiAgQyAtPj4rIFA6IOWHpueQhueZu-mMslxuICBQIC0-PisgSDog44Oq44Kv44Ko44K544OIXG4gIE5vdGUgcmlnaHQgb2YgQzog5LuW44Gu5Yem55CGXG4gIEggLS0-Pi0gUDog44Os44K544Od44Oz44K5XG4gIFAgLS0-Pi0gQzog44Kz44O844Or44OQ44OD44Kv5ZG844Gz5Ye644GXIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
+```mermaid
+---
+title: 同期処理
+---
 
+sequenceDiagram
+    クライアント->>+ホスト: リクエスト
+    Note right of クライアント: 待ち時間
+    ホスト-->>-クライアント: レスポンス
+```
+
+```mermaid
+---
+title: 非同期処理
+---
+
+sequenceDiagram
+    クライアント->>+非同期処理: 処理登録
+    非同期処理->>+ホスト: リクエスト
+    Note right of クライアント: 他の処理
+    ホスト-->>-非同期処理: レスポンス
+    非同期処理-->>-クライアント: コールバック呼び出し
+```
 <details>
   <summary>JS における非同期処理の捉え方</summary>
 
