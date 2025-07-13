@@ -940,7 +940,7 @@ localStorage.clear();
 console.log(localStorage.length); // 0
 ```
 
-![localStorageサンプル](imgs/localstorage.png)
+![localStorageサンプル](imgs/localstorage.jpeg)
 
 注意点として、`localStorage` に保存する値はすべて文字列になることが挙げられます。  
 例えば、`localStorage.setItem('age', 20);` として number 型で保存できたと思っても、`getItem` で取り出したときには `'20'` として文字列で返ってきます。このあと数値として扱いたい場合には `Number(<文字列>)` として number 型に変換する必要があります。  
@@ -966,7 +966,7 @@ if ('geolocation' in navigator) {
 
 ↑のコードを実行すると↓のようなポップアップが表示されます。「サイトへのアクセス時のみ許可する」または「今回のみ許可」をクリックして位置情報を利用できるようにしてください。
 
-![位置情報利用許可](imgs/geolocation-authority.png)
+![位置情報利用許可](imgs/geolocation-authority.jpeg)
 
 ![実行結果](imgs/geolocation-sample.png)
 
