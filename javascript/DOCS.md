@@ -940,7 +940,7 @@ localStorage.clear();
 console.log(localStorage.length); // 0
 ```
 
-![localStorageサンプル](imgs/localstorage.jpeg)
+![localStorageサンプル](imgs/localstorage.webp)
 
 注意点として、`localStorage` に保存する値はすべて文字列になることが挙げられます。  
 例えば、`localStorage.setItem('age', 20);` として number 型で保存できたと思っても、`getItem` で取り出したときには `'20'` として文字列で返ってきます。このあと数値として扱いたい場合には `Number(<文字列>)` として number 型に変換する必要があります。  
@@ -966,15 +966,15 @@ if ('geolocation' in navigator) {
 
 ↑のコードを実行すると↓のようなポップアップが表示されます。「サイトへのアクセス時のみ許可する」または「今回のみ許可」をクリックして位置情報を利用できるようにしてください。
 
-![位置情報利用許可](imgs/geolocation-authority.jpeg)
+![位置情報利用許可](imgs/geolocation-authority.webp)
 
-![実行結果](imgs/geolocation-sample.png)
+![実行結果](imgs/geolocation-sample.webp)
 
 ↑のように緯度経度が出力されれば問題なく実行できています。
 
 [地図](https://fukuno.jig.jp/app/map/latlng/)で調べて見ると若干のズレはあるもののおおよその位置はあっていました
 
-![位置情報から地図](imgs/geolocation-map.png)
+![位置情報から地図](imgs/geolocation-map.webp)
 
 位置情報の応用は[こちらの記事](https://hackmd.io/@haruyuki16278/Hk2Tmh7b3)や[mdn web docs](https://developer.mozilla.org/ja/docs/Web/API/Geolocation_API/Using_the_Geolocation_API#examples)を確認してみてください。
 
