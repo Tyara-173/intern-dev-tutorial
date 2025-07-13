@@ -972,7 +972,7 @@ if ('geolocation' in navigator) {
 
 ↑のように緯度経度が出力されれば問題なく実行できています。
 
-[地図](https://fukuno.jig.jp/app/map/latlng/)で調べて見ると若干のズレはあるもののおおよその位置はあっていました
+[地図](https://fukuno.jig.jp/app/map/latlng/)で調べて見ると若干のズレはあるもののおおよその位置はあっていました。
 
 ![位置情報から地図](imgs/geolocation-map.webp)
 
