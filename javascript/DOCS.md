@@ -478,7 +478,7 @@ console.log(fibonacciSeries); // [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 
 ![実行結果](imgs/for-calc-fibonacci.webp)
 
-このように面倒な手順を `for` 文を使うことでで簡単に記述できました。
+このように面倒な手順を `for` 文を使うことで簡単に記述できました。
 
 <details>
   <summary>負の値をインデックスに使いたい</summary>
