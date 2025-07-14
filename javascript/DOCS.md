@@ -647,7 +647,7 @@ setTimeout(() => {
   `setTimeout` は `setTimeout(callback, delay)` のように2つの引数を取ります。  
   `callback` はコールバック関数で `delay` ミリ秒後に実行されます。  
   また、返り値として正の整数値を返します。これは登録されたタイマーを一意に識別するためのIDです。  
-  `setTimeout` が呼ばれてから `delay` ミリ秒の間に `clearTimeout(id)` とすることで登録されたコールバック関数の実行をキャンセルできます。
+  `setTimeout` が呼ばれてから `delay` ミリ秒の間に `clearTimeout(timeoutID)` とすることで登録されたコールバック関数の実行をキャンセルできます。
 </details>
 
 ### 6-2. オブジェクト
