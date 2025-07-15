@@ -40,8 +40,8 @@
       - [6-2-2. プロパティの追加と存在確認](#6-2-2-プロパティの追加と存在確認)
     - [6-3. クラス](#6-3-クラス)
   - [7. 非同期処理を使おう](#7-非同期処理を使おう)
-    - [7-1. `Promise`/`then()`/`catch()`](#7-1-promisethencatch)
-    - [7-2. `async`/`await`](#7-2-asyncawait)
+    - [7-1. `Promise` / `then()` / `catch()`](#7-1-promise--then--catch)
+    - [7-2. `async` / `await`](#7-2-async--await)
   - [8. ブラウザの標準APIを使ってみよう](#8-ブラウザの標準apiを使ってみよう)
     - [8-1. Web Storage API](#8-1-web-storage-api)
     - [8-2. 位置情報API](#8-2-位置情報api)
@@ -822,24 +822,46 @@ myClass.printText();
 
 ## 7. 非同期処理を使おう
 
-非同期処理とはその名の通りプログラム中で非同期的な処理を行うことです。例えばサーバーへのリクエストを送ってレスポンスを受けとりたいときに使用されます。
-ここまでのコードはすべて同期処理で、非同期処理とは対称的に書いてあるコードが上から順に処理されて行きます。しかし、同期処理ではサーバーへのリクエストを送ったあとレスポンスが返ってくるまで何もすることができず（正確には「レスポンスを待つ」ことが処理になっているため次の処理に移れず）、処理にかかる時間が大幅に伸びてしまったりします。この待ち時間を解消するための仕組みが非同期処理です。
+非同期処理とはその名の通りプログラム中で非同期的な処理を行うことです。例えばサーバーへのリクエストを送ってレスポンスを受けとりたいときに使用されます。  
+ここまで紹介してきたコードはすべて同期処理で、非同期処理とは対称的に書いてあるコードが上から順に処理されていきます。しかし、同期処理ではサーバーへのリクエストを送ったあとレスポンスが返ってくるまで何もすることができず（正確には「レスポンスを待つ」ことが処理になっているため次の処理に移れず）、処理にかかる時間が大幅に伸びてしまったりします。  
+この待ち時間を解消するための仕組みが非同期処理です。  
 
-[![同期処理のイメージ](https://mermaid.ink/img/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG4gIHBhcnRpY2lwYW50IEMgYXMg44Kv44Op44Kk44Ki44Oz44OIXG4gIHBhcnRpY2lwYW50IEggYXMg44Ob44K544OIXG5cbiAgQyAtPj4rIEg6IOODquOCr-OCqOOCueODiFxuICBOb3RlIHJpZ2h0IG9mIEM6IOW-heOBoeaZgumWk1xuICBIIC0tPj4tIEM6IOODrOOCueODneODs-OCuVxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/docs/mermaid-live-editor-beta/#/edit/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG4gIHBhcnRpY2lwYW50IEMgYXMg44Kv44Op44Kk44Ki44Oz44OIXG4gIHBhcnRpY2lwYW50IEggYXMg44Ob44K544OIXG5cbiAgQyAtPj4rIEg6IOODquOCr-OCqOOCueODiFxuICBOb3RlIHJpZ2h0IG9mIEM6IOW-heOBoeaZgumWk1xuICBIIC0tPj4tIEM6IOODrOOCueODneODs-OCuVxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)[![非同期処理のイメージ](https://mermaid.ink/img/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG4gIHBhcnRpY2lwYW50IEMgYXMg44Kv44Op44Kk44Ki44Oz44OIXG4gIHBhcnRpY2lwYW50IFAgYXMg6Z2e5ZCM5pyf5Yem55CGXG4gIHBhcnRpY2lwYW50IEggYXMg44Ob44K544OIXG5cbiAgQyAtPj4rIFA6IOWHpueQhueZu-mMslxuICBQIC0-PisgSDog44Oq44Kv44Ko44K544OIXG4gIE5vdGUgcmlnaHQgb2YgQzog5LuW44Gu5Yem55CGXG4gIEggLS0-Pi0gUDog44Os44K544Od44Oz44K5XG4gIFAgLS0-Pi0gQzog44Kz44O844Or44OQ44OD44Kv5ZG844Gz5Ye644GXIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/docs/mermaid-live-editor-beta/#/edit/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG4gIHBhcnRpY2lwYW50IEMgYXMg44Kv44Op44Kk44Ki44Oz44OIXG4gIHBhcnRpY2lwYW50IFAgYXMg6Z2e5ZCM5pyf5Yem55CGXG4gIHBhcnRpY2lwYW50IEggYXMg44Ob44K544OIXG5cbiAgQyAtPj4rIFA6IOWHpueQhueZu-mMslxuICBQIC0-PisgSDog44Oq44Kv44Ko44K544OIXG4gIE5vdGUgcmlnaHQgb2YgQzog5LuW44Gu5Yem55CGXG4gIEggLS0-Pi0gUDog44Os44K544Od44Oz44K5XG4gIFAgLS0-Pi0gQzog44Kz44O844Or44OQ44OD44Kv5ZG844Gz5Ye644GXIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
+```mermaid
+---
+title: 同期処理
+---
 
+sequenceDiagram
+    クライアント->>+ホスト: リクエスト
+    Note right of クライアント: 待ち時間
+    ホスト-->>-クライアント: レスポンス
+```
+
+```mermaid
+---
+title: 非同期処理
+---
+
+sequenceDiagram
+    クライアント->>+非同期処理: 処理登録
+    非同期処理->>+ホスト: リクエスト
+    Note right of クライアント: 他の処理
+    ホスト-->>-非同期処理: レスポンス
+    非同期処理-->>-クライアント: コールバック呼び出し
+```
 <details>
-  <summary>JSにおける非同期処理の捉え方</summary>
+  <summary>JS における非同期処理の捉え方</summary>
 
-  JSの処理は基本的にシングルスレッドで、実際には↑の図のような形にはなりづらいです。(実現する方法はあります。)
-  非同期処理は並列に処理される(同時の2つの処理が行われる)わけではなく平行に処理されます(一つの処理の流れの中で2つの処理が行われる)。イメージとしては人間二人が一つずつの作業を行うわけではなく、人間一人が順序をつけて2つの作業を行う感じです。
-  JSにおける非同期処理は、サーバーからもらうデータが必要などの理由で、*今すぐに実行することができない処理を一旦後回しにして、必要なデータが揃ったものから処理していく*という認識が妥当に思います。
+  JS の処理は基本的にシングルスレッドで、実際には↑の図のような形にはなりづらいです（実現する方法はあります）。  
+  非同期処理は並列に処理される（同時の2つの処理が行われる）わけではなく平行に処理されます（一つの処理の流れの中で2つの処理が行われる）。イメージとしては2人の人間が一つずつの作業を行うわけではなく、1人の人間が順序をつけて2つの作業を行う感じです。  
+  JS における非同期処理は、サーバーからもらうデータが必要などの理由で、*今すぐに実行することができない処理を一旦後回しにして、必要なデータが揃ってから処理していく* という認識が妥当に思います。
 
   詳しくは[こちらのページ](https://jsprimer.net/basic/async/)がわかりやすいです。
 </details>
 
-### 7-1. `Promise`/`then()`/`catch()`
+### 7-1. `Promise` / `then()` / `catch()`
 
-ここでは非同期処理の状態や結果を扱うことのできる`Promise`オブジェクトについて説明します。
+ここでは非同期処理の状態や結果を扱うことのできる `Promise` オブジェクトについて説明します。
 
 ```javascript
 const randomDelay = () => new Promise((resolve, reject) => {
@@ -858,17 +880,17 @@ randomDelay()
   .catch(e => console.log(`reject: ${e}`));
 ```
 
-↑のコードではランダムな0~1000ミリ秒後に、待機時間が偶数秒なら`resolve`で解決され、奇数秒なら`reject`で拒否される`Promise`インスタンスを返す関数 `randomDelay` を宣言しています。
-その後、`randomDelay()`でインスタンス生成、`Promise`を`then()`/`catch()`で受け取って解決・拒否を処理しています。
+↑のコードではランダムな0~1000ミリ秒後に、待機時間が偶数秒なら `resolve` で解決され、奇数秒なら `reject` で拒否される `Promise` インスタンスを返す関数 `randomDelay` を宣言しています。
+その後、`randomDelay()` でインスタンスを生成し、`Promise` を `then()` / `catch()` で受け取って解決・拒否を処理しています。
 
 ![Promiseサンプル実行結果](imgs/promise-random-delay.gif)
 
-### 7-2. `async`/`await`
+### 7-2. `async` / `await`
 
-`async`はAsync Function(直訳: 非同期関数)を定義するための構文です。これは必ず`Promise`インスタンスを返す関数で通常の関数定義の構文とは異なります。
-それに対して`await`は`Promise`インスタンスを右辺にとり、その状態が解決もしくは拒否されるまでその場で待機するものです。
+`async` は非同期関数を定義するための構文です。これは必ず `Promise` インスタンスを返す関数で通常の関数定義の構文とは異なります。
+それに対して `await` は `Promise` インスタンスを右辺にとり、その状態が解決もしくは拒否されるまでその場で待機するものです。
 
-これらを用いて 6-1. の`randomDelay`を実装すると次のようになります。
+これらを用いて 7-1. の `randomDelay` 関数を実装すると次のようになります。
 
 ```javascript
 async function randomDelay () {
@@ -892,19 +914,19 @@ try {
 }
 ```
 
-ランダムな時間待機するコードが変わっていますが、処理内容は同様です。気になる方は以下のサマリーを確認してください。
-ここで `try` ~ `catch` という構文が登場しますが、これは例外処理のための文です。
-`Promise` ~ `then` ~ `catch` では例外を `catch` がひろってくれるのですが、`await`式を用いた実装では例外は明示的に処理しなければなりません。そのため、この記述が必要になります。
+ランダムな時間待機するコードが変わっていますが、処理内容は同様です。気になる方は以下のサマリーを確認してください。  
+ここで新たに `try` ~ `catch` という構文が登場しますが、これは例外処理のための文です。
+`Promise` ~ `then` ~ `catch` では例外を `catch` がひろってくれるのですが、`await` 式を用いた実装では例外は明示的に処理しなければなりません。そのため、この記述が必要になります。
 
 ![asyncサンプル実行結果](imgs/async-random-delay.gif)
 
 <details>
-  <summary>JSで処理を一時待機させる方法</summary>
+  <summary>JS で処理を一時待機させる方法</summary>
 
-  ↑のコードでは関数が呼ばれた時刻を保持して、`while`文を利用して現在時刻と比較し続けて`delay`秒経過したら`break`で`while`ループを抜ける処理になっています。
+  ↑のコードでは関数が呼ばれた時刻を `startedAt` で保持して、`while` 文を利用して現在時刻と比較し続けて `delay` 秒経過したら `break` で `while` ループを抜ける処理になっています。
   この方法は処理の負荷が非常に高いため、普通まずやってはいけない処理です。
 
-  ではどのような方法で実装できるかというと、以下の定義で`sleep`関数を用意することができます。
+  ではどのような方法で実装できるかというと、以下の定義で `sleep` 関数を用意することができます。
 
   ```javascript
   const sleep = delay => new Promise(resolve => setTimeout(resolve, delay));
@@ -930,11 +952,12 @@ try {
   }
   ```
 
-  ではなぜ非推奨なコードをサンプルで書いたのかというと、関数定義を一つだけにしたい、`await`の使用箇所を一つにしたいという理由のために使用しました。
-  特別な事情がないかぎり、`sleep`関数を定義して利用するのが良いでしょう
+  関数定義を一つだけにしたい、`await` の使用箇所を一つにしたいという理由で非推奨なコードをサンプルで使用しました。
+  特別な事情がないかぎり、`sleep` 関数を定義して利用するのが良いでしょう。
 </details>
+<br>
 
-処理によって`Promise`~`then`を利用するか`async`/`await`を利用するか、どちらが読みやすいかを考えながら使い分けられると良いですね。
+処理によって `Promise` ~ `then` を利用するか `async` / `await` を利用するか、どちらが読みやすいかを考えながら使い分けられると良いですね。
 
 ## 8. ブラウザの標準APIを使ってみよう
 
