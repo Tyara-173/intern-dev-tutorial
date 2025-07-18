@@ -94,7 +94,7 @@ Deno KVにデータを保存してみましょう。以下のようなコード�
 
 ```js
 // Deno KVにアクセス
-const kv = await Deno.openKV();
+const kv = await Deno.openKv();
 
 // Deno KVに保存
 // 第一引数はkey, 第二引数はvalue
@@ -227,7 +227,7 @@ Deno KVからデータを取得してみましょう。データの取得には�
 
 ```js
 // Deno KVにアクセス
-const kv = await Deno.openKV();
+const kv = await Deno.openKv();
 
 // get: 単体の取得
 const getResult = await kv.get(["hoge", 1]);
@@ -364,7 +364,7 @@ Deno KVに保存したデータを削除してみましょう。データの削�
 
 ```js
 // Deno KVにアクセス
-const kv = await Deno.openKV();
+const kv = await Deno.openKv();
 
 // データを削除
 const result = await kv.delete(["hoge"]);
